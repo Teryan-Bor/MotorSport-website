@@ -13,3 +13,7 @@ My first full-stack pet-project, built to practice and improve core PHP and MySQ
 - User registration and login system
 - Safe data handling (password hashing)
 - Dynamic content rendering from SQL database
+
+## Demo
+
+[Live Preview] https://teryan-bor.github.io/MotorSport-website/
