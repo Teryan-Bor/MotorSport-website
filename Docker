@@ -1,0 +1,24 @@
+FROM php:8.2-apache
+
+# Устанавливаем системные зависимости для работы с SQLite
+RUN apt-get update && apt-get install -y \
+    libsqlite3-dev \
+    pkg-config \
+    && rm -rf /var/lib/apt/lists/*
+
+# Включаем необходимые PHP-расширения
+RUN docker-php-ext-install pdo pdo_sqlite
+
+# Включаем mod_rewrite для Apache (если используете роутинг, например .htaccess)
+RUN a2enmod rewrite
+
+# Копируем исходный код проекта в рабочую директорию Apache
+COPY . /var/www/html/
+
+# Выставляем правильные права на файлы и папки
+# КРИТИЧНО: Папка, где лежит файл .db, должна быть доступна для записи пользователю www-data
+RUN chown -R www-data:www-data /var/www/html \
+    && chmod -R 775 /var/www/html
+
+# Открываем порт 80
+EXPOSE 80
