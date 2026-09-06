@@ -16,4 +16,4 @@ My first full-stack pet-project, built to practice and improve core PHP and MySQ
 
 ## Demo
 
-[Live Preview] https://teryan-bor.github.io/MotorSport-website/
+[Live Preview] https://motorsport-333.onrender.com
